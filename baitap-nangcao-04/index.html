@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập JS Buổi 4</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="bg-danger p-1 text-center text-white">
+        <h1 class="text-center">Bài tập 4 - Nâng Cao</h1>
+        <p class="text-center">
+          Cho biết toạ độ của nhà 3 sinh viên và toạ độ của trường đại học.In
+          tên Sinh viên có toạ độ xa nhất
+        </p>
+      </div>
+      <form class="w-50 pt-4">
+        <div class="form-group">
+          <div class="row">
+            <h5 class="h5 w-100">Sinh Viên Thứ Nhất</h5>
+            <div class="col-6">
+              <label for="first-x"> Toạ độ X </label>
+              <input
+                type="number"
+                class="form-control"
+                id="first-x"
+                value="0"
+              />
+            </div>
+            <div class="col-6">
+              <label for="first-y"> Toạ độ Y </label>
+              <input
+                type="number"
+                class="form-control"
+                id="first-y"
+                value="0"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <h5 class="h5 w-100">Sinh Viên Thứ Hai</h5>
+            <div class="col-6">
+              <label for="second-x"> Toạ độ X </label>
+              <input
+                type="number"
+                class="form-control"
+                id="second-x"
+                value="0"
+              />
+            </div>
+            <div class="col-6">
+              <label for="second-y"> Toạ độ Y </label>
+              <input
+                type="number"
+                class="form-control"
+                id="second-y"
+                value="0"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <h5 class="h5 w-100">Sinh Viên Thứ Ba</h5>
+            <div class="col-6">
+              <label for="third-x"> Toạ độ X </label>
+              <input
+                type="number"
+                class="form-control"
+                id="third-x"
+                value="0"
+              />
+            </div>
+            <div class="col-6">
+              <label for="third-y"> Toạ độ Y </label>
+              <input
+                type="number"
+                class="form-control"
+                id="third-y"
+                value="0"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <h5 class="h5 w-100">Toạ độ trường học</h5>
+            <div class="col-6">
+              <label for="fourth-x"> Toạ độ X </label>
+              <input
+                type="number"
+                class="form-control"
+                id="fourth-x"
+                value="0"
+              />
+            </div>
+            <div class="col-6">
+              <label for="fourth-y"> Toạ độ Y </label>
+              <input
+                type="number"
+                class="form-control"
+                id="fourth-y"
+                value="0"
+              />
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="submitBtn">
+          Sinh viên có nhà xa nhất
+        </button>
+        <div class="form-group pt-3">
+          <label for="result"> Kết quả </label>
+          <input
+            type="text"
+            class="form-control bg-secondary text-white"
+            id="result"
+            readonly
+          />
+        </div>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+      integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
