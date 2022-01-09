@@ -175,6 +175,3 @@ calculateBtnEl.onclick = function () {
     resultEl.value = null;
   }
 };
-
-let x = 35;
-console.log(x.toString()[0]);
