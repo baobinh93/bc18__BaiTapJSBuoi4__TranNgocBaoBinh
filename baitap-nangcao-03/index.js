@@ -2,6 +2,7 @@
 // - Nhập số nguyên có 3 chữ số
 
 // Xử lý:
+// - Kiểm tra có dấu âm hay không
 // - Tách số nguyên thành từng phần trăm , chục , đơn vị
 // - Gán cách đọc cho từng giá trị đó
 // - Chú ý các từ : Lẻ - Năm & Lăm - Một & Mốt
@@ -16,7 +17,7 @@ const calculateBtnEl = document.querySelector("#submitBtn");
 const resultEl = document.querySelector("#result");
 
 function checkNum(num) {
-  if (num >= 0 && num % 1 === 0) {
+  if (num % 1 === 0) {
     return true;
   } else {
     return false;
@@ -24,15 +25,22 @@ function checkNum(num) {
 }
 
 function cachDocBangChu(num) {
-  let hangTram = Math.floor(num / 100);
-  let hangChuc = Math.floor(num / 10) - Math.floor(num / 100) * 10;
-  let hangDonVi = num % 10;
+  let isNegative = num.toString()[0] === "-";
+  let numAbsolute = Math.abs(num);
+  let hangTram = Math.floor(numAbsolute / 100);
+  let hangChuc =
+    Math.floor(numAbsolute / 10) - Math.floor(numAbsolute / 100) * 10;
+  let hangDonVi = numAbsolute % 10;
 
-  console.log(hangTram, hangChuc, hangDonVi);
+  console.log(isNegative, hangTram, hangChuc, hangDonVi);
+  let cachDocSoAm = "";
   let cachDocHangTram;
   let cachDocHangChuc;
   let cachDocHangDonVi;
 
+  if (isNegative) {
+    cachDocSoAm = "Âm";
+  }
   switch (hangTram) {
     case 0:
       cachDocHangTram = "";
@@ -146,10 +154,17 @@ function cachDocBangChu(num) {
   } else if (hangTram > 0 && hangChuc == 0) {
     cachDocHangChuc = "Lẻ";
   }
-  return cachDocHangTram + " " + cachDocHangChuc + " " + cachDocHangDonVi;
+  return (
+    cachDocSoAm +
+    " " +
+    cachDocHangTram +
+    " " +
+    cachDocHangChuc +
+    " " +
+    cachDocHangDonVi
+  );
 }
 
-console.log(cachDocBangChu(101));
 calculateBtnEl.onclick = function () {
   let number = firstInputEl.value * 1;
 
@@ -160,3 +175,6 @@ calculateBtnEl.onclick = function () {
     resultEl.value = null;
   }
 };
+
+let x = 35;
+console.log(x.toString()[0]);
