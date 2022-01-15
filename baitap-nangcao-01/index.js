@@ -13,9 +13,11 @@ const firstInputEl = document.querySelector("#first");
 const secondInputEl = document.querySelector("#second");
 const thirdInputEl = document.querySelector("#third");
 
-const calculateBtnEl = document.querySelector("#submitBtn");
+const calculateBtnEl = document.querySelector("#submitBtn--next");
+const calculatePreBtnEl = document.querySelector("#submitBtn--pre");
 
-const resultEl = document.querySelector("#result");
+const resultEl = document.querySelector("#result--next");
+const resultPreEl = document.querySelector("#result--pre");
 
 function checkNum(num) {
   if (num > 0 && num % 1 === 0) {
@@ -25,10 +27,14 @@ function checkNum(num) {
   }
 }
 
-function findMaxDayOfMonth(mon) {
+function findMaxDayOfMonth(mon, year) {
+  let bonus = 0;
+  if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+    bonus = 1;
+  }
   let maxDay;
   if (mon == 2) {
-    maxDay = 28;
+    maxDay = 28 + bonus;
   } else if (
     mon == 1 ||
     mon == 3 ||
@@ -47,7 +53,7 @@ function findMaxDayOfMonth(mon) {
 
 function findNextDay(date, month, year) {
   let result;
-  let maxDay = findMaxDayOfMonth(month);
+  let maxDay = findMaxDayOfMonth(month, year);
 
   if (date == 31 && month == 12) {
     result = `01/01/${year + 1}`;
@@ -59,12 +65,28 @@ function findNextDay(date, month, year) {
 
   return result;
 }
+
+function findPreDay(date, month, year) {
+  let result;
+  let maxDay = findMaxDayOfMonth(month, year);
+
+  if (date == 1 && month == 1) {
+    result = `31/12/${year - 1}`;
+  } else if (date == 1) {
+    result = `${findMaxDayOfMonth(month - 1, year)}/${month - 1}/${year}`;
+  } else {
+    result = `${date - 1}/${month}/${year}`;
+  }
+
+  return result;
+}
+
 calculateBtnEl.onclick = function () {
   let date = firstInputEl.value * 1;
   let month = secondInputEl.value * 1;
   let year = thirdInputEl.value * 1;
 
-  let maxDay = findMaxDayOfMonth(month);
+  let maxDay = findMaxDayOfMonth(month, year);
 
   if (
     checkNum(date) &&
@@ -77,5 +99,25 @@ calculateBtnEl.onclick = function () {
   } else {
     alert("Nhập sai dữ liệu");
     resultEl.value = null;
+  }
+};
+calculatePreBtnEl.onclick = function () {
+  let date = firstInputEl.value * 1;
+  let month = secondInputEl.value * 1;
+  let year = thirdInputEl.value * 1;
+
+  let maxDay = findMaxDayOfMonth(month, year);
+
+  if (
+    checkNum(date) &&
+    checkNum(month) &&
+    checkNum(year) &&
+    date <= maxDay &&
+    month <= 12
+  ) {
+    resultPreEl.value = findPreDay(date, month, year);
+  } else {
+    alert("Nhập sai dữ liệu");
+    resultPreEl.value = null;
   }
 };

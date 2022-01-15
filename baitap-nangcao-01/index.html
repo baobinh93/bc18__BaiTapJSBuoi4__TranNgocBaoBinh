@@ -18,7 +18,7 @@
         <h1 class="text-center">Bài tập 1 - Nâng Cao</h1>
         <p class="text-center">
           Viết chương trình nhập vào ngày / tháng / năm tìm ngày / tháng / năm
-          của ngày tiếp theo
+          của ngày tiếp theo và ngày trước đó
         </p>
       </div>
       <form class="w-50 pt-4">
@@ -35,15 +35,27 @@
           <input type="number" class="form-control" id="third" value="0" />
         </div>
 
-        <button type="button" class="btn btn-primary" id="submitBtn">
+        <button type="button" class="btn btn-primary" id="submitBtn--next">
           Tìm ngày tiếp theo
         </button>
         <div class="form-group pt-3">
-          <label for="result"> Kết quả </label>
+          <label for="result--next"> Kết quả </label>
           <input
             type="text"
             class="form-control bg-secondary text-white"
-            id="result"
+            id="result--next"
+            readonly
+          />
+        </div>
+        <button type="button" class="btn btn-primary mt-3" id="submitBtn--pre">
+          Tìm ngày trước đó
+        </button>
+        <div class="form-group pt-3">
+          <label for="result--pre"> Kết quả </label>
+          <input
+            type="text"
+            class="form-control bg-secondary text-white"
+            id="result--pre"
             readonly
           />
         </div>
