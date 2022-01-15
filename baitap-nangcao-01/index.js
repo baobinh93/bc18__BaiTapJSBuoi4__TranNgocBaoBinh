@@ -14,7 +14,6 @@ const secondInputEl = document.querySelector("#second");
 const thirdInputEl = document.querySelector("#third");
 
 const calculateBtnEl = document.querySelector("#submitBtn--next");
-const calculatePreBtnEl = document.querySelector("#submitBtn--pre");
 
 const resultEl = document.querySelector("#result--next");
 const resultPreEl = document.querySelector("#result--pre");
@@ -96,28 +95,10 @@ calculateBtnEl.onclick = function () {
     month <= 12
   ) {
     resultEl.value = findNextDay(date, month, year);
-  } else {
-    alert("Nhập sai dữ liệu");
-    resultEl.value = null;
-  }
-};
-calculatePreBtnEl.onclick = function () {
-  let date = firstInputEl.value * 1;
-  let month = secondInputEl.value * 1;
-  let year = thirdInputEl.value * 1;
-
-  let maxDay = findMaxDayOfMonth(month, year);
-
-  if (
-    checkNum(date) &&
-    checkNum(month) &&
-    checkNum(year) &&
-    date <= maxDay &&
-    month <= 12
-  ) {
     resultPreEl.value = findPreDay(date, month, year);
   } else {
     alert("Nhập sai dữ liệu");
+    resultEl.value = null;
     resultPreEl.value = null;
   }
 };
